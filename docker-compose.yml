@@ -1,0 +1,48 @@
+services:
+  nuxtjs:
+    build:
+      context: ./website
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+    environment:
+      - VITE_API_URL=http://fastapi:8000
+
+  fastapi:
+    build: ./api
+    ports:
+      - "8000:8000"
+    networks:
+      - app-network
+    environment:
+      - REDIS_HOST=redis
+    depends_on:
+      - redis
+
+  ollama:
+    image: ollama/ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama:/root/.ollama
+      - ./config:/root/.ollama/config
+    networks:
+      - app-network
+
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - app-network
+    volumes:
+      - redis-data:/data
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  ollama:
+  redis-data:

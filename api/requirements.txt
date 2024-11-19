@@ -1,0 +1,16 @@
+fastapi==0.100.0           # FastAPI framework
+uvicorn[standard]==0.23.2  # ASGI server
+PyPDF2==3.0.1              # For extracting text from PDF files
+python-docx==0.8.11        # For extracting text from DOCX files
+chardet==5.2.0             # For detecting text encoding in TXT files
+pydantic==2.9            # For data validation and settings management
+pytest==7.4.0             # For testing
+pytest-asyncio==0.21.0    # For testing async code
+python-dotenv==1.0.0      # For .env file management
+gunicorn==23.0.0          # Production-grade WSGI server
+python-multipart
+python-socketio[asyncio]
+python-engineio[asyncio]
+pytesseract
+aiohttp
+redis
