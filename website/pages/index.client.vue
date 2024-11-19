@@ -181,7 +181,7 @@ async function submitMessage() {
       });
 
       // Call the file upload endpoint
-      const response = await fetch("http://localhost:8000/api/v1/uploadfile/", {
+      const response = await fetch("http://0.0.0.0:8000/api/v1/uploadfile/", {
         method: "POST",
         body: formData,
       });

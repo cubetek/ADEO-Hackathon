@@ -11,7 +11,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig:{
     public:{
-      VITE_API_URL: process.env.VITE_API_URL
+      VITE_API_URL: process.env.VITE_API_URL || 'http://0.0.0.0:8000'
     }
   },
   extends: [
